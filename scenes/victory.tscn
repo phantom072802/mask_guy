@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://dtrkwxtdr1vob"]
+
+[ext_resource type="Script" uid="uid://vmj6yc4dt6ul" path="res://scenes/victory.gd" id="1_hl81x"]
+[ext_resource type="Texture2D" uid="uid://c7v2ckairmssp" path="res://scenes/Yellow.png" id="2_73dpb"]
+[ext_resource type="Texture2D" uid="uid://h6igafsngych" path="res://scenes/finish.png" id="3_g6lwx"]
+[ext_resource type="AudioStream" uid="uid://l5iqc7xg5mxp" path="res://scenes/piglevelwin2mp3-14800.mp3" id="4_73dpb"]
+
+[sub_resource type="SystemFont" id="SystemFont_5hn41"]
+
+[sub_resource type="FontVariation" id="FontVariation_n2k88"]
+base_font = SubResource("SystemFont_5hn41")
+
+[node name="victory" type="Node"]
+script = ExtResource("1_hl81x")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_73dpb")
+stretch_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -286.0
+offset_top = -135.0
+offset_right = 289.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_g6lwx")
+
+[node name="backToGame" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -148.0
+offset_top = 39.0
+offset_right = 151.0
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontVariation_n2k88")
+theme_override_font_sizes/font_size = 30
+text = "Back to game!"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_73dpb")
+
+[connection signal="pressed" from="backToGame" to="." method="_on_back_to_game_pressed"]
